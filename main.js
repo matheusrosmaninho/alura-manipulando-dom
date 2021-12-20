@@ -1,7 +1,8 @@
 import BotaoConclui from "./components/concluirTarefa.js";
 import BotaoDeleta from "./components/deletarTarefa.js";
+import {data as helperData} from "./helpers/data.js";
 
-const criarTarefa = (event) => {
+const handleNovoItem = (event) => {
   event.preventDefault();
 
   const list = document.querySelector("[data-list]");
@@ -10,11 +11,19 @@ const criarTarefa = (event) => {
 
   const calendario = document.querySelector('[data-form-date]')
   let data = calendario.value
-  data = new Date(data).toLocaleString('pt-BR', {
-    timeZone: 'America/Sao_Paulo'
-  })
-  console.log(data)
+  data = helperData(new Date(data)).onlyDateBr()
 
+  const dados = {
+    valor, data
+  }
+  const criaTarefa = criarTarefa(dados)
+
+  list.appendChild(criaTarefa);
+  localStorage.setItem('tarefas', JSON.stringify(dados))
+  input.value = "";
+}
+
+const criarTarefa = ({valor, data}) => {
   const tarefa = document.createElement("li");
   tarefa.classList.add("task");
 
@@ -23,11 +32,9 @@ const criarTarefa = (event) => {
 
   tarefa.appendChild(BotaoConclui());
   tarefa.appendChild(BotaoDeleta());
-  list.appendChild(tarefa);
-
-  input.value = "";
+  return tarefa
 };
 
 const novaTarefa = document.querySelector("[data-form-button");
 
-novaTarefa.addEventListener("click", criarTarefa);
+novaTarefa.addEventListener("click", handleNovoItem);
