@@ -8,10 +8,17 @@ const criarTarefa = (event) => {
   const input = document.querySelector("[data-form-input");
   const valor = input.value;
 
+  const calendario = document.querySelector('[data-form-date]')
+  let data = calendario.value
+  data = new Date(data).toLocaleString('pt-BR', {
+    timeZone: 'America/Sao_Paulo'
+  })
+  console.log(data)
+
   const tarefa = document.createElement("li");
   tarefa.classList.add("task");
 
-  const conteudo = `<p class="content">${valor}</p>`;
+  const conteudo = `<p class="content">${data} ${valor}</p>`;
   tarefa.innerHTML = conteudo;
 
   tarefa.appendChild(BotaoConclui());
