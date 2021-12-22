@@ -30,7 +30,7 @@ export const Tarefa = ({valor, data}) => {
   const tarefa = document.createElement("li");
   tarefa.classList.add("task");
 
-  const conteudo = `<p class="content">${data} ${valor}</p>`;
+  const conteudo = `<p class="content">${valor}</p>`;
   tarefa.innerHTML = conteudo;
 
   tarefa.appendChild(BotaoConclui());
