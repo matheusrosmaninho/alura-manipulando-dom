@@ -7,7 +7,6 @@ export const criaData = (data) => {
   const dataTopo = document.createElement("li");
   const conteudo = `<p class="content-data">${data}</p>`;
   dataTopo.innerHTML = conteudo;
-  console.log(tarefas);
 
   tarefas.forEach((tarefa) => {
     const dia = tarefa.data

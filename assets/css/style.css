@@ -156,6 +156,9 @@ body {
   margin: 0;
   margin-right: .5rem;
 }
+.content-data {
+  color: #fff;
+}
 
 .task.done .content {
   text-decoration: line-through;
