@@ -8,11 +8,11 @@ export const criaData = (data) => {
   const conteudo = `<p class="content-data">${data}</p>`;
   dataTopo.innerHTML = conteudo;
 
-  tarefas.forEach((tarefa) => {
+  tarefas.forEach((tarefa, id) => {
     const dia = tarefa.data
 
     if (dia == data) {
-      dataTopo.appendChild(Tarefa(tarefa));
+      dataTopo.appendChild(Tarefa(tarefa, id));
     }
   });
   return dataTopo;
