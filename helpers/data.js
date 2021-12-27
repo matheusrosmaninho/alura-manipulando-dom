@@ -10,7 +10,6 @@ export const data = (data) => {
     optionsHour: {
       hour: 'numeric',
       minute: 'numeric',
-      second: 'numeric',
     },
 
     onlyDateBr() {
